@@ -4,7 +4,7 @@ from page_objects.base_page import BasePage
 from data.data import Comments
 
 
-class OrderPageHelper(BasePage):
+class OrderPage(BasePage):
 
     def fill_in_client_info(self):
         self.find_element_located(OrderPageLocators.FIRST_NAME_LOCATOR).send_keys(

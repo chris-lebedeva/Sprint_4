@@ -4,7 +4,7 @@ from locators.main_page_locators import MainPageLocators
 from page_objects.base_page import BasePage
 
 
-class MainPageHelper(BasePage):
+class MainPage(BasePage):
     def accept_cookies(self):
         self.find_element_located(MainPageLocators.COOKIE_ACCEPT_BUTTON_LOCATOR).click()
 
