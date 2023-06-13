@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from data.urls import Urls
 
 
-# Базовый класс объекта страницы
 class BasePage:
     def __init__(self, driver):
         self.driver = driver

@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 
-# Класс с локаторами главной страницы
 class MainPageLocators:
     COOKIE_ACCEPT_BUTTON_LOCATOR = (By.CLASS_NAME, "App_CookieButton__3cvqF")
     MOST_ASKED_QUESTIONS_SECTION_HEADING_LOCATOR = (By.CLASS_NAME, "Home_FourPart__1uthg")

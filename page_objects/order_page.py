@@ -4,7 +4,6 @@ from page_objects.base_page import BasePage
 from data.data import Comments
 
 
-# Класс с методами для оформления заказа
 class OrderPageHelper(BasePage):
 
     def fill_in_client_info(self):

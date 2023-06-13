@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 
-# Класс с локаторами формы оформления заказа
 class OrderPageLocators:
     FIRST_NAME_LOCATOR = (By.XPATH, "//input[@placeholder='* Имя']")
     LAST_NAME_LOCATOR = (By.XPATH, "//input[@placeholder='* Фамилия']")

@@ -2,7 +2,6 @@ import random
 from faker import Faker
 
 
-# Класс для генерации рандомных тестовых данных
 class GeneratedData:
 
     def generate_random_first_name():
