@@ -21,3 +21,6 @@ class BasePage:
     def find_elements_located(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_all_elements_located(locator),
                                                       message=f"Элементы {locator} не найдены")
+
+    def scroll_to_element(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)

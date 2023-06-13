@@ -10,7 +10,7 @@ class MainPageHelper(BasePage):
 
     def scroll_to_the_most_asked_questions_section(self):
         section = self.find_element_located(MainPageLocators.MOST_ASKED_QUESTIONS_SECTION_HEADING_LOCATOR)
-        self.driver.execute_script("arguments[0].scrollIntoView();", section)
+        self.scroll_to_element(section)
 
     def click_on_questions_get_answers(self, driver):
         questions = self.find_elements_located(MainPageLocators.QUESTION_LOCATOR)
