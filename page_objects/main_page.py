@@ -11,16 +11,16 @@ class MainPage(BasePage):
     def scroll_to_the_most_asked_questions_section(self):
         section = self.find_element_located(MainPageLocators.MOST_ASKED_QUESTIONS_SECTION_HEADING_LOCATOR)
         self.scroll_to_element(section)
+        WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located(MainPageLocators.QUESTION_LOCATOR))
 
-    def click_on_questions_get_answers(self, driver):
+    def click_on_questions(self, index):
+        WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located(MainPageLocators.QUESTION_LOCATOR))
         questions = self.find_elements_located(MainPageLocators.QUESTION_LOCATOR)
-        answers = []
-        for question in questions:
-            question.click()
-            WebDriverWait(driver, 5).until(EC.visibility_of_element_located(MainPageLocators.ANSWER_LOCATOR))
-            answer = self.find_element_located(MainPageLocators.ANSWER_LOCATOR).text
-            answers.append(answer)
-        return answers
+        questions[index].click()
+
+    def get_answers(self):
+        WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located(MainPageLocators.ANSWER_LOCATOR))
+        return self.find_element_located(MainPageLocators.ANSWER_LOCATOR).text
 
     def click_on_top_order_button(self):
         self.find_element_located(MainPageLocators.TOP_ORDER_BUTTON_LOCATOR).click()

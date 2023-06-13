@@ -14,6 +14,5 @@ class Answers:
 
 
 class Comments:
-
     first_comment = 'Позовите к телефону агента Купера.'
     second_comment = 'Доставьте, пожалуйста, самокат как можно скорее.'

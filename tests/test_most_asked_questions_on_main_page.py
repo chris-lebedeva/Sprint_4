@@ -1,15 +1,18 @@
 import allure
-from page_objects.main_page import MainPageHelper
+import pytest
+from page_objects.main_page import MainPage
 from data.data import Answers
 
 
 @allure.title('Проверка списка часто задаваемых вопросов и ответов на главной странице')
 @allure.description('На главной странице ищем список часто задаваемых вопросов и ответов и проверяем корректность '
                     'ответов')
-def test_most_asked_questions_on_main_page(driver):
-    main_page = MainPageHelper(driver)
+@pytest.mark.parametrize("index", range(8))
+def test_most_asked_questions_on_main_page(driver, index):
+    main_page = MainPage(driver)
     main_page.go_to_site()
     main_page.accept_cookies()
     main_page.scroll_to_the_most_asked_questions_section()
-    answers = main_page.click_on_questions_get_answers(driver)
-    assert answers == Answers.answers
+    main_page.click_on_questions(index)
+    answer = main_page.get_answers()
+    assert answer == Answers.answers[index], f'Получен некорректный текст ответа. Ожидалось: {answer}'
