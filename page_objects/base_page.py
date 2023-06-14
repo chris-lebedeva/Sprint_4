@@ -11,8 +11,8 @@ class BasePage:
     def click(self, element):
         element.click()
 
-    def go_to_site(self):
-        return self.driver.get(self.base_url)
+    def go_to_site(self, url):
+        return self.driver.get(url)
 
     def current_url(self):
         return self.driver.current_url

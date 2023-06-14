@@ -38,6 +38,6 @@ class MainPage(BasePage):
     def click_on_bottom_order_button(self):
         self.find_element_located(MainPageLocators.BOTTOM_ORDER_BUTTON_LOCATOR).click()
 
-    @allure.step('Ожидание загрузки логотипа Дзен')
+    @allure.step('Ожидание загрузки логотипа "Дзен"')
     def wait_for_dzen_logo(self):
         self.wait_element_visible(MainPageLocators.DZEN_LOGO_LOCATOR)
