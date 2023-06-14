@@ -14,6 +14,9 @@ class BasePage:
     def go_to_site(self):
         return self.driver.get(self.base_url)
 
+    def current_url(self):
+        return self.driver.current_url
+
     def find_element_located(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
                                                       message=f"Элемент {locator} не найден")
@@ -24,3 +27,6 @@ class BasePage:
 
     def scroll_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def wait_element_visible(self, locator):
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))

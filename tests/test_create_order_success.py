@@ -1,4 +1,5 @@
 import allure
+from data.data import Comments
 from data.urls import Urls
 from page_objects.main_page import MainPage
 from page_objects.order_page import OrderPage
@@ -14,7 +15,7 @@ def test_create_order_by_clicking_on_the_top_button(driver):
     main_page.click_on_top_order_button()
     order_page = OrderPage(driver)
     order_page.fill_in_client_info()
-    order_page.fill_in_first_order_details()
+    order_page.fill_in_order_details(OrderPage.RentalPeriod.ONE_DAY, OrderPage.Color.BLACK, Comments.first_comment)
     order_page.finish_order_creation()
     order_number = order_page.get_order_number()
     assert order_number in driver.current_url
@@ -33,11 +34,11 @@ def test_create_order_by_clicking_on_the_bottom_button(driver):
     main_page.click_on_bottom_order_button()
     order_page = OrderPage(driver)
     order_page.fill_in_client_info()
-    order_page.fill_in_second_order_details()
+    order_page.fill_in_order_details(OrderPage.RentalPeriod.TWO_DAYS, OrderPage.Color.GREY, Comments.second_comment)
     order_page.finish_order_creation()
     order_number = order_page.get_order_number()
     assert order_number in driver.current_url
     order_page.click_on_yandex_logo()
     driver.switch_to.window(driver.window_handles[1])
-    main_page.wait_for_dzen_logo(driver)
+    main_page.wait_for_dzen_logo()
     assert main_page.current_url() == Urls.DZEN_MAIN_PAGE_URL
