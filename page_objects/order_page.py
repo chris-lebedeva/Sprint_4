@@ -1,6 +1,5 @@
 import allure
 from enum import Enum
-from data.generators import GeneratedData
 from locators.order_page_locators import OrderPageLocators
 from page_objects.base_page import BasePage
 
@@ -16,19 +15,15 @@ class OrderPage(BasePage):
 
     @allure.step('Заполнить информацию о клиенте на странице оформления заказа: '
                  'имя, фамилия, адрес, станция метро, номер телефона, дата аренды')
-    def fill_in_client_info(self):
-        self.find_element_located(OrderPageLocators.FIRST_NAME_LOCATOR).send_keys(
-            GeneratedData.generate_random_first_name())
-        self.find_element_located(OrderPageLocators.LAST_NAME_LOCATOR).send_keys(
-            GeneratedData.generate_random_last_name())
-        self.find_element_located(OrderPageLocators.STREET_ADDRESS_LOCATOR).send_keys(
-            GeneratedData.generate_random_street_address())
+    def fill_in_client_info(self, first_name, last_name, street_address, phone_number):
+        self.find_element_located(OrderPageLocators.FIRST_NAME_LOCATOR).send_keys(first_name)
+        self.find_element_located(OrderPageLocators.LAST_NAME_LOCATOR).send_keys(last_name)
+        self.find_element_located(OrderPageLocators.STREET_ADDRESS_LOCATOR).send_keys(street_address)
         self.find_element_located(OrderPageLocators.STATION_LOCATOR).click()
         station = self.find_element_located(OrderPageLocators.REQUIRED_STATION_LOCATOR)
         self.scroll_to_element(station)
         station.click()
-        self.find_element_located(OrderPageLocators.PHONE_NUMBER_LOCATOR).send_keys(
-            GeneratedData.generate_random_phone_number())
+        self.find_element_located(OrderPageLocators.PHONE_NUMBER_LOCATOR).send_keys(phone_number)
         self.find_element_located(OrderPageLocators.NEXT_BUTTON).click()
         self.find_element_located(OrderPageLocators.RENTAL_DATE_LOCATOR).click()
         next_day = self.find_element_located(OrderPageLocators.NEXT_DAY_LOCATOR)
