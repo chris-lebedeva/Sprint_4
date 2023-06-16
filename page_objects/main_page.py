@@ -32,7 +32,7 @@ class MainPage(BasePage):
     @allure.step('Пролистать до кнопки "Заказать" в нижней части главной страницы')
     def scroll_to_the_bottom_order_button(self):
         button = self.find_element_located(MainPageLocators.BOTTOM_ORDER_BUTTON_LOCATOR)
-        self.driver.execute_script("arguments[0].scrollIntoView();", button)
+        self.scroll_to_element(button)
 
     @allure.step('Нажать на кнопку "Заказать" в нижней части главной страницы')
     def click_on_bottom_order_button(self):
