@@ -5,6 +5,7 @@ from page_objects.main_page import MainPage
 from data.data import Answers
 
 
+@allure.feature(' Раздел часто задаваемых вопросов')
 class TestQuestionsAndAnswers:
 
     @allure.title('Проверка списка часто задаваемых вопросов и ответов на главной странице')
@@ -18,4 +19,4 @@ class TestQuestionsAndAnswers:
         main_page.scroll_to_the_most_asked_questions_section()
         main_page.click_on_questions(index)
         answer = main_page.get_answers()
-        assert answer == Answers.answers[index], f'Получен некорректный текст ответа. Ожидалось: {answer}'
+        assert answer == Answers.answers[index], f'Получен некорректный текст ответа. Ожидалось: {Answers.answers[index]}'

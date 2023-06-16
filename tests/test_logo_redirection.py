@@ -4,6 +4,7 @@ from page_objects.main_page import MainPage
 from page_objects.order_page import OrderPage
 
 
+@allure.feature('Переход по ссылкам')
 class TestLogoRedirection:
 
     @allure.title('Проверка корректности редиректа при клике на логотип "Самокат"')

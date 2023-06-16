@@ -6,6 +6,7 @@ from page_objects.main_page import MainPage
 from page_objects.order_page import OrderPage
 
 
+@allure.feature('Оформление заказа')
 class TestOrderCreation:
 
     @allure.title('Проверка оформления заказа через кнопку "Заказать" в правом верхнем углу главной страницы')
